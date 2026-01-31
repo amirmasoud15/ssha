@@ -1,4 +1,4 @@
-name: Temporary SSH (tmate)
+name: Temporary SSH (tmate - auto)
 
 on:
   workflow_dispatch:
@@ -12,12 +12,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup tmate session
+      - name: Start tmate session
         uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
 
-      - name: Keep session alive (6 hours)
+      - name: Keep alive for 6 hours
         run: |
-          echo "SSH session is alive for up to 6 hours..."
+          echo "tmate session is running..."
           sleep 21600
